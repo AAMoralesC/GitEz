@@ -21,4 +21,48 @@
 La forma recomendada de instalarlo para que quede disponible como comando global en tu terminal es mediante `pipx`:
 
 ```bash
-pipx install git+[https://github.com/AAMoralesC/GitEz.git](https://github.com/AAMoralesC/GitEz.git)
+pipx install git+https://github.com/AAMoralesC/GitEz.git
+```
+
+### Instalación manual / Desarrollo local
+
+Si prefieres clonar el repositorio e instalarlo directamente:
+
+```bash
+git clone https://github.com/AAMoralesC/GitEz.git
+cd GitEz
+pipx install .
+```
+
+---
+
+## 💻 Uso
+
+Realiza cambios en tu código y agrégalos al área de preparación (*staging*) como de costumbre:
+
+```bash
+git add .
+```
+
+Ejecuta el comando desde cualquier consola (Git Bash, PowerShell, CMD):
+
+```bash
+git-ez
+```
+
+Usa las flechas `↑`/`↓` para navegar entre las sugerencias o elige la opción para escribir un mensaje personalizado. Presiona `Enter` y el commit se ejecutará automáticamente.
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- **Python**
+- [Typer](https://typer.tiangolo.com/) — Construcción de la CLI
+- [Questionary](https://questionary.readthedocs.io/) — Menús interactivos en la terminal
+- [Rich](https://rich.readthedocs.io/) — Formatos y estilos en la consola
+
+---
+
+## 📄 Licencia
+
+Este proyecto está distribuido bajo la **Licencia MIT**. Consulta el archivo `LICENSE` para más información.
