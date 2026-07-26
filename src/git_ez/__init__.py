@@ -1,0 +1,1 @@
+from git_ez.main import app
