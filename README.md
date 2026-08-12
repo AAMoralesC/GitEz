@@ -6,6 +6,14 @@
 
 ---
 
+## 📸 Demo en funcionamiento
+
+Mira cómo `GitEz` detecta automáticamente los archivos modificados y sugiere mensajes de commit adecuados:
+
+![Demostración de GitEz](./gitez.png)
+
+---
+
 ## ⚡ Características
 
 - 🚀 **Ultra rápido:** Latencia prácticamente nula, sin dependencias de servicios externos ni LLMs de pago.
@@ -34,23 +42,29 @@ cd GitEz
 pipx install .
 ```
 
+Si prefieres usar `pip` convencional (asegúrate de que tu entorno lo permita):
+
+```bash
+pip install git+https://github.com/AAMoralesC/GitEz.git
+```
+
 ---
 
 ## 💻 Uso
 
-Realiza cambios en tu código y agrégalos al área de preparación (*staging*) como de costumbre:
+1. Realiza cambios en tu repositorio y agrégalos al área de preparación (*staging*) como de costumbre:
+   ```bash
+   git add <archivo>
+   # o bien: git add .
+   ```
 
-```bash
-git add .
-```
+2. Ejecuta el comando desde cualquier consola (Git Bash, PowerShell, CMD):
+   ```bash
+   git ez
+   ```
+   *(También puedes llamarlo como `git-ez` o `gitez` dependiendo de tu entorno)*
 
-Ejecuta el comando desde cualquier consola (Git Bash, PowerShell, CMD):
-
-```bash
-git-ez
-```
-
-Usa las flechas `↑`/`↓` para navegar entre las sugerencias o elige la opción para escribir un mensaje personalizado. Presiona `Enter` y el commit se ejecutará automáticamente.
+3. Usa las flechas `↑`/`↓` para navegar entre las sugerencias o elige la opción para escribir un mensaje personalizado. Presiona `Enter` y el commit se ejecutará automáticamente.
 
 ---
 
@@ -60,6 +74,18 @@ Usa las flechas `↑`/`↓` para navegar entre las sugerencias o elige la opció
 - [Typer](https://typer.tiangolo.com/) — Construcción de la CLI
 - [Questionary](https://questionary.readthedocs.io/) — Menús interactivos en la terminal
 - [Rich](https://rich.readthedocs.io/) — Formatos y estilos en la consola
+
+---
+
+## 🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas! Si deseas mejorar el proyecto:
+1. Haz un Fork del repositorio.
+2. Crea tu rama para la nueva funcionalidad (`git checkout -b feature/AmazingFeature`).
+3. Agrega tus cambios al área de staging (`git add .`).
+4. Haz commit usando nuestra propia herramienta (`git ez` 😉).
+5. Sube tu rama (`git push origin feature/AmazingFeature`).
+6. Abre un Pull Request.
 
 ---
 
