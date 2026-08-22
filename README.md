@@ -24,6 +24,14 @@ Mira cómo `GitEz` detecta automáticamente los archivos modificados y sugiere m
 
 ---
 
+## 🖥️ Requisitos
+
+- Python **3.10** o superior
+- [`pipx`](https://pipx.pypa.io/stable/) (recomendado) o `pip`
+- Git instalado y disponible en el `PATH`
+
+---
+
 ## 📦 Instalación
 
 La forma recomendada de instalarlo para que quede disponible como comando global en tu terminal es mediante `pipx`:
@@ -47,6 +55,21 @@ Si prefieres usar `pip` convencional (asegúrate de que tu entorno lo permita):
 ```bash
 pip install git+https://github.com/AAMoralesC/GitEz.git
 ```
+
+### Actualización
+
+Si ya tienes `GitEz` instalado y quieres actualizarlo a la última versión:
+
+```bash
+pipx upgrade git-ez
+```
+
+> **Nota:** Si `pipx` muestra una advertencia de que el ejecutable en `.local\bin` no coincide, elimínalo manualmente y reinstala:
+> ```bash
+> # Windows (PowerShell)
+> Remove-Item "$env:USERPROFILE\.local\bin\git-ez.exe" -Force
+> pipx reinstall git-ez
+> ```
 
 ---
 

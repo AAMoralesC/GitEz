@@ -47,21 +47,21 @@ def generate_suggestions(files: list[str], ticket: str) -> list[str]:
     suggestions = []
 
     if has_docs and len(files) == 1:
-        suggestions.append(f"docs: {ticket_prefix}update documentation ({files[0]})")
+        suggestions.append(f"docs: {ticket_prefix}actualizar documentación ({files[0]})")
     
     if has_tests:
-        suggestions.append(f"test: {ticket_prefix}add or update unit tests")
+        suggestions.append(f"test: {ticket_prefix}agregar o actualizar pruebas unitarias")
         
     if has_config:
-        suggestions.append(f"chore: {ticket_prefix}update project dependencies and configuration")
+        suggestions.append(f"chore: {ticket_prefix}actualizar dependencias y configuración del proyecto")
 
     # Opción genérica basada en la cantidad de archivos
     file_summary = ", ".join([f.split("/")[-1] for f in files[:2]])
     if len(files) > 2:
-        file_summary += f" and {len(files) - 2} more"
+        file_summary += f" y {len(files) - 2} más"
 
-    suggestions.append(f"feat: {ticket_prefix}update {file_summary}")
-    suggestions.append(f"fix: {ticket_prefix}resolve issue in {file_summary}")
+    suggestions.append(f"feat: {ticket_prefix}actualizar {file_summary}")
+    suggestions.append(f"fix: {ticket_prefix}resolver problema en {file_summary}")
 
     return suggestions
 
