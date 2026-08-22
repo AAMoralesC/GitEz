@@ -110,6 +110,7 @@ pipx upgrade git-ez
 
 3. Usa las flechas `↑`/`↓` para navegar entre las sugerencias o elige la opción para escribir un mensaje personalizado. Presiona `Enter` y el commit se ejecutará automáticamente.
 
+
 ---
 
 ## 🛠️ Tecnologías utilizadas
