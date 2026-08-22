@@ -1,16 +1,16 @@
 # GitEz 🚀
 
-> **Un generador interactivo, ultrarrápido y local de mensajes para commits en Git.**
+> **Un generador interactivo, ultrarrápido y local de mensajes para commits en Git — en español.**
 
-`GitEz` analiza los archivos que agregaste a *staging* (`git add .`) y te sugiere automáticamente mensajes estandarizados bajo la convención de **Conventional Commits**. Se ejecuta en milisegundos, funciona 100% offline y no requiere API keys.
+`GitEz` analiza los archivos que agregaste a *staging* (`git add .`) y te sugiere automáticamente mensajes estandarizados bajo la convención de **Conventional Commits**, **redactados en español**. Se ejecuta en milisegundos, funciona 100% offline y no requiere API keys.
 
 ---
 
 ## 📸 Demo en funcionamiento
 
-Mira cómo `GitEz` detecta automáticamente los archivos modificados y sugiere mensajes de commit adecuados:
+Mira cómo `GitEz` detecta automáticamente los archivos en staging, sugiere el mensaje adecuado y realiza el commit con un solo `Enter`:
 
-![Demostración de GitEz](./gitez.png)
+![Demo de GitEz en acción](./gitez_demo.png)
 
 ---
 
@@ -18,9 +18,30 @@ Mira cómo `GitEz` detecta automáticamente los archivos modificados y sugiere m
 
 - 🚀 **Ultra rápido:** Latencia prácticamente nula, sin dependencias de servicios externos ni LLMs de pago.
 - 🔒 **100% Privado:** Todo el análisis se ejecuta de forma local en tu máquina.
+- 🇪🇸 **Mensajes en español:** Todas las sugerencias de commit se generan en español de forma nativa.
 - 🎯 **Sugerencias inteligentes:** Detecta extensiones de archivos, documentación, tests y configuraciones para inferir el tipo de commit (`feat`, `fix`, `docs`, `test`, `chore`).
 - 🏷️ **Integración con tickets:** Infiere automáticamente el ID de Jira o ticket a partir del nombre de tu rama Git.
 - ⌨️ **Interfaz TUI fluida:** Selecciona el mensaje de forma sencilla utilizando las flechas del teclado.
+
+---
+
+## 🇪🇸 Commits en español
+
+`GitEz` genera los mensajes de commit **en español** por defecto. Algunos ejemplos de las sugerencias que verás:
+
+| Tipo | Ejemplo de mensaje generado |
+|------|----------------------------|
+| `feat` | `feat: actualizar main.py, utils.py` |
+| `fix` | `fix: resolver problema en auth.py` |
+| `docs` | `docs: actualizar documentación (README.md)` |
+| `test` | `test: agregar o actualizar pruebas unitarias` |
+| `chore` | `chore: actualizar dependencias y configuración del proyecto` |
+
+Si tu rama tiene un ticket de Jira (ej. `feature/PROJ-42-login`), se incluye automáticamente:
+
+```
+feat: [PROJ-42] actualizar main.py, utils.py
+```
 
 ---
 
