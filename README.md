@@ -1,6 +1,7 @@
 # GitEz 🚀
 
 [![tests](https://github.com/AAMoralesC/GitEz/actions/workflows/tests.yml/badge.svg)](https://github.com/AAMoralesC/GitEz/actions/workflows/tests.yml)
+[![PyPI](https://img.shields.io/pypi/v/git-ez.svg)](https://pypi.org/project/git-ez/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 
@@ -48,16 +49,10 @@ añade costo, latencia y una dependencia externa sin mejorar el resultado.
 pipx install git-ez
 ```
 
-Si el paquete aún no aparece en PyPI, instala directo desde el repositorio:
+También con `pip`:
 
 ```bash
-pipx install git+https://github.com/AAMoralesC/GitEz.git
-```
-
-Con `pip` convencional:
-
-```bash
-pip install git+https://github.com/AAMoralesC/GitEz.git
+pip install git-ez
 ```
 
 ### Desarrollo local
