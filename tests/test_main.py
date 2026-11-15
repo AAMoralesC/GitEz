@@ -5,7 +5,7 @@ import os
 # Add src/ to PYTHONPATH so we can import git_ez
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
 
-from git_ez.main import generate_suggestions
+from git_ez.main import generate_suggestions, extract_ticket_from_branch
 
 class TestGitEzSuggestions(unittest.TestCase):
     def test_only_docs_no_ticket(self):
@@ -35,6 +35,20 @@ class TestGitEzSuggestions(unittest.TestCase):
         suggestions = generate_suggestions(files, "XYZ-99")
         expected_feat = "feat: [XYZ-99] actualizar a.py, b.py y 2 más"
         self.assertIn(expected_feat, suggestions)
+
+    def test_no_files_returns_empty(self):
+        self.assertEqual(generate_suggestions([], "ABC-123"), [])
+
+class TestTicketExtraction(unittest.TestCase):
+    def test_ticket_found(self):
+        self.assertEqual(extract_ticket_from_branch("feature/PROJ-42-login"), "PROJ-42")
+
+    def test_ticket_is_uppercased(self):
+        self.assertEqual(extract_ticket_from_branch("fix/abc-7"), "ABC-7")
+
+    def test_branch_without_ticket(self):
+        self.assertEqual(extract_ticket_from_branch("main"), "")
+        self.assertEqual(extract_ticket_from_branch(""), "")
 
 if __name__ == "__main__":
     unittest.main()

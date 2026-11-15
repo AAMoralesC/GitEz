@@ -7,6 +7,14 @@ from rich import print
 
 app = typer.Typer(help="CLI para generar commits inteligentes y rápidos.")
 
+
+@app.callback(invoke_without_command=True)
+def main(ctx: typer.Context):
+    """Ejecuta `commit` cuando no se indica subcomando (`git ez`)."""
+    if ctx.invoked_subcommand is None:
+        commit()
+
+
 def get_git_branch() -> str:
     """Obtiene el nombre de la rama Git actual."""
     try:
@@ -37,6 +45,9 @@ def extract_ticket_from_branch(branch_name: str) -> str:
 
 def generate_suggestions(files: list[str], ticket: str) -> list[str]:
     """Genera opciones de mensajes basados en los archivos en staging."""
+    if not files:
+        return []
+
     ticket_prefix = f"[{ticket}] " if ticket else ""
     
     # Analizamos extensiones de archivos para inferir el 'scope'
@@ -94,13 +105,13 @@ def commit():
 
     if not selected_message:
         print("[yellow]Operación cancelada.[/yellow]")
-        raise typer.Exit()
+        raise typer.Exit(code=1)
 
     if selected_message == CUSTOM_OPTION:
         selected_message = questionary.text("Escribe tu mensaje de commit:").ask()
         if not selected_message:
             print("[red]El mensaje no puede estar vacío.[/red]")
-            raise typer.Exit()
+            raise typer.Exit(code=1)
 
     # Ejecutar el commit
     try:
@@ -108,6 +119,7 @@ def commit():
         print(f"\n[bold green]🚀 Commit realizado con éxito:[/bold green] \"{selected_message}\"")
     except subprocess.CalledProcessError:
         print("\n[bold red]❌ Error al ejecutar git commit.[/bold red]")
+        raise typer.Exit(code=1)
 
 if __name__ == "__main__":
     app()

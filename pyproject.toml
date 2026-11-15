@@ -4,15 +4,40 @@ build-backend = "hatchling.build"
 
 [project]
 name = "git-ez"
-version = "0.1.0"
-description = "Generador interactivo y rápido de mensajes para commits en Git."
+version = "1.0.0"
+description = "Generador interactivo y local de mensajes de commit bajo Conventional Commits, en español."
 readme = "README.md"
-requires-python = ">=3.9"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "Andrés Morales", email = "andresdremc@gmail.com" }]
+keywords = ["git", "commit", "conventional-commits", "cli", "typer"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Spanish",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Version Control :: Git",
+]
 dependencies = [
     "typer>=0.9.0",
     "questionary>=2.0.0",
     "rich>=13.0.0",
 ]
 
+[project.urls]
+Homepage = "https://github.com/AAMoralesC/GitEz"
+Repository = "https://github.com/AAMoralesC/GitEz"
+Issues = "https://github.com/AAMoralesC/GitEz/issues"
+
 [project.scripts]
-git-ez = "git_ez:app"
+git-ez = "git_ez.main:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/git_ez"]
